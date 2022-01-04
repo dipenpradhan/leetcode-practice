@@ -54,10 +54,13 @@ class Solution {
         // Mark the current city we have reached using DFS as visited
         visited[n] = true;
         
-        // For each city connection from the city "n"
-        // check all 4 directions
+        // For each city connection from the city "n",
+        // check every other city "i"
+        
         for(int i = 0; i < totalCities; i++){
-            if(isConnected[n][i] == 1){
+            if(isConnected[n][i] == 1 && n!=i){
+                // If the two cities "n" and "i" are connected
+                // run dfs on city "i" and visit all of its connections
                 count += dfs(isConnected, i, visited);
             } 
         }
