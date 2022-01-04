@@ -23,6 +23,7 @@ class Solution {
         
         // Create a HashMap of visited nodes
         // use node value as key and node reference as value
+        // This allows us to process one node only once, and handle cycles
         Map<Integer, Node> seen = new HashMap<Integer, Node>();
        
         return clone(node, seen);
