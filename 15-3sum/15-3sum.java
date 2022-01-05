@@ -7,8 +7,8 @@ class Solution {
         int i = 0, k = nums.length-1, j=i+1;
         Arrays.sort(nums);
         
-        for (int n : nums )System.out.print(n+" ");
-        System.out.println("");
+        // for (int n : nums )System.out.print(n+" ");
+        // System.out.println("");
         
         while(i < k-1){
             
@@ -41,9 +41,6 @@ class Solution {
             }else{
                 k--;
             }
-            
-            
-                
                 
         }
         
