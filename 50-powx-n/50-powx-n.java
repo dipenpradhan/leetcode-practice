@@ -8,8 +8,8 @@ class Solution {
         
         double result = 1;
         double currVal = x;
-        long pow = n;
-        if(pow<0) pow = -pow;
+        long pow = Math.abs((long)n);
+        
         
         if(n < 0) currVal = 1/x;
         
