@@ -25,7 +25,7 @@ class Solution {
                 // Way 2: Climb 2 steps from step "i-2"
                 // So total no. of ways to reach step "i" will be total no. of ways to reach total(i-1) + total(i-2)
                 // Since we have already stored these results in the memo array, we add memo[i-1] + memo[i-2]
-                // This fits the bottom-up dynamic programming concept
+                // This fits the bottom-up dynamic programming concept for fibonacci series
                 memo[i] = memo[i-1] + memo[i-2];    
             }   
         }
