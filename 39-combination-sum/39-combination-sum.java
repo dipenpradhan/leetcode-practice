@@ -11,6 +11,7 @@ class Solution {
             fn backtrack(candidates, start, chosen, remaining)
                 if start exceeds candidates - STOP
                 if remaining = 0 - STOP, add this chosen list to result
+                if remaining is less than zero - STOP
                 
                 
                 loop over candidates, starting from "start"
@@ -45,15 +46,9 @@ class Solution {
         }
         
         for(int i = start; i < candidates.length; i++){
-            
-            // if(candidates[i] <= remaining){
             chosen.add(candidates[i]);
             backtrack(candidates, i, result, chosen, remaining - candidates[i]);
             chosen.remove(chosen.size()-1);
-            // }else{
-                // backtrack(candidates, start+1, result, chosen, remaining);
-            // }
-            
         }
         
     }
