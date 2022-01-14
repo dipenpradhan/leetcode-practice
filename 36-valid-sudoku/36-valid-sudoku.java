@@ -19,10 +19,10 @@ class Solution {
         
         int N = 9;
         Map<String, Set<Character>> boxSeen = new HashMap<>();
-        
+        Set<Character> rowSeen = new HashSet<>();
+        Set<Character> colSeen = new HashSet<>();
+            
         for(int i = 0; i < N; i ++){
-            Set<Character> rowSeen = new HashSet<>();
-            Set<Character> colSeen = new HashSet<>();
             
             for(int j = 0; j < N; j ++){
                 
@@ -60,6 +60,8 @@ class Solution {
                 
                 
             }
+            rowSeen.clear();
+            colSeen.clear();
         }
         
                     return true;
