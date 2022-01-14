@@ -49,7 +49,6 @@ class Solution {
     }
     
     private void backtrack(TreeNode node, List<List<Integer>> result, List<Integer> currentPath, int remaining){
-        // if(remaining < 0) return;
         if(node == null) return;
         
         currentPath.add(node.val);
