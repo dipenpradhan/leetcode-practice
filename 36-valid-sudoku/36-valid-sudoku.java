@@ -19,8 +19,8 @@ class Solution {
         
         int N = 9;
         Map<String, Set<Character>> boxSeen = new HashMap<>();
-        Set<Character> rowSeen = new HashSet<>();
-        Set<Character> colSeen = new HashSet<>();
+        boolean[] rowSeen = new boolean[N];
+        boolean[] colSeen = new boolean[N];
             
         for(int i = 0; i < N; i ++){
             
@@ -30,10 +30,10 @@ class Solution {
                 char colChar = board[j][i];
                 
                 if(rowChar != '.'){
-                    if(rowSeen.contains(rowChar)){
+                    if(rowSeen[Character.getNumericValue(rowChar)-1]){
                         return false;
                     }else{
-                        rowSeen.add(rowChar);
+                        rowSeen[Character.getNumericValue(rowChar)-1] = true;
                     }
                     
                     String boxKey = (i/3) + "|" + (j/3);
@@ -51,17 +51,17 @@ class Solution {
                 }
                 
                 if(colChar != '.'){
-                    if(colSeen.contains(colChar)){
+                    if(colSeen[Character.getNumericValue(colChar)-1]){
                         return false;
                     }else{
-                        colSeen.add(colChar);
+                        colSeen[Character.getNumericValue(colChar)-1] = true;
                     }
                 }
                 
                 
             }
-            rowSeen.clear();
-            colSeen.clear();
+            rowSeen = new boolean[N];
+            colSeen = new boolean[N];
         }
         
         return true;
