@@ -36,9 +36,7 @@ class Solution {
                         rowSeen.add(rowChar);
                     }
                     
-                    int boxRowIx = i/3;
-                    int boxColIx = j/3;
-                    String boxKey = boxRowIx + "|" + boxColIx;
+                    String boxKey = (i/3) + "|" + (j/3);
                     
                     if(boxSeen.containsKey(boxKey)){
                         if(boxSeen.get(boxKey).contains(rowChar)){
