@@ -26,12 +26,16 @@ class Solution {
             fn backtrack(node, result, currentPath, remaining):
                 
                 if node is null STOP
-                if remaining is 0, add currentPath to result, STOP
-                if remaining < 0 STOP
                 
                 add node to currentPath
-                backtrack(node.left, result, currentPath, remaining - node.val)
-                backtrack(node.right, result, currentPath, remaining - node.val)
+                
+                if remaining is same as node value, and we are at leaf node
+                    add currentPath to result
+                else
+                    // go down left and right child                
+                    backtrack(node.left, result, currentPath, remaining - node.val)
+                    backtrack(node.right, result, currentPath, remaining - node.val)
+                    
                 remove node from currentPath
                 
         */
