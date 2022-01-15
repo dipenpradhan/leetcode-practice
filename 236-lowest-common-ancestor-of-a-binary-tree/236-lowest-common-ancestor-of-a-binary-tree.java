@@ -15,27 +15,24 @@ class Solution {
           6   2     0  8
              7 4  
     
-    
-        count = 0
         
         fn lca(root, p, q):
             
             dfs(root, p, q)
         
         fn dfs(node, p, q):
-            record prevCount 
+        
             if node is p or q:
-                count++
+                node can be result
             
             dfs(left
             dfs(right
             
-            if count reaches 2 and prevCount was 0
-                return node
+            if node matches p or q and left or right return other result then node is LCA
+            if node does not match p or q but left and right both return a result then node is LCA
             
+            else return whichever is not null between left and right
     */
-    
-    private int count = 0;
     
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         
@@ -46,11 +43,9 @@ class Solution {
     private TreeNode dfs(TreeNode node, TreeNode p, TreeNode q){
         
         if(node == null) return null;
-        int prevCount = count;
         
         boolean currIsResult = false;
         if(node.val == p.val || node.val == q.val){
-            count++;
             currIsResult = true;
         }
         
