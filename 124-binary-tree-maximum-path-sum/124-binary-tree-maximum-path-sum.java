@@ -25,12 +25,12 @@ class Solution {
         fn findMax(node):
             
             compare between:
-                max including current node
-                max returned by left child
-                max returned by right child
+                1.max including current node
+                2.max returned by left child and curr node
+                3.max returned by right child and curr node
             
-            choose whichever is highest between above 3 and update maxSum if required
-            return whichever is highest for this node
+            update maxSum with max including current node if required
+            return whichever is highest for this node between 2 & 3
             
     
     */
