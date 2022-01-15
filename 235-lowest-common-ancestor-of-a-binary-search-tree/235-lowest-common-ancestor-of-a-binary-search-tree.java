@@ -12,10 +12,9 @@ class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         /*
             
-            if left is less than node and right is greater than node, this has to be least common
-                1. check node less than or equal to p/q
-                2. check node greater than or equal to p/q
-                3. if node is equal to either p or q
+                1. check node less than p and greater than q then node is least
+                2. check node greater p than and less than q then node is least
+                3. if node is equal to either p or q node is least
             
         
         */
