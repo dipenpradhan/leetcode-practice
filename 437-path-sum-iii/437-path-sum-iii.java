@@ -46,13 +46,13 @@ class Solution {
         Map<Integer, Integer> prefixSumCounts = new HashMap<Integer, Integer>();
         prefixSumCounts.put(0,1);
         
-        dfs(root, prefixSumCounts, 0, targetSum);
+        backtrack(root, prefixSumCounts, 0, targetSum);
         
         return count;
     }
     
     
-    private void dfs(TreeNode node, Map<Integer, Integer> prefixSumCounts, int currSum, int target){
+    private void backtrack(TreeNode node, Map<Integer, Integer> prefixSumCounts, int currSum, int target){
         
         if(node == null)
             return;
@@ -71,8 +71,9 @@ class Solution {
             prefixSumCounts.put(currSum, 1);
         }
         
-        dfs(node.left, prefixSumCounts, currSum, target);
-        dfs(node.right, prefixSumCounts, currSum, target);
+        backtrack(node.left, prefixSumCounts, currSum, target);
+        backtrack(node.right, prefixSumCounts, currSum, target);
+        
         prefixSumCounts.put(currSum, prefixSumCounts.get(currSum) - 1);
     }
     
