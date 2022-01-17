@@ -57,16 +57,16 @@ class Solution {
     }
     
     private boolean backtrack(int row, int col, int start, boolean[][] visited, char[][] board, String word){
-        
-        if(row < 0 || row >= totalRows || col < 0 || col >= totalCols){
+
+        if(start >= word.length()) return true;
+
+        if(row < 0 || row >= totalRows || col < 0 || col >= totalCols || visited[row][col] || word.charAt(start) != board[row][col]){
             return false;
         }
         
-        if(start == word.length()) return true;
 
-        if(totalRows == 1 && totalCols == 1 && word.length() == 1 && word.charAt(start) == board[row][col]) return true;
+        // if(totalRows == 1 && totalCols == 1 && word.length() == 1 && word.charAt(start) == board[row][col]) return true;
 
-        if(visited[row][col] || word.charAt(start) != board[row][col]) return false;
         
         visited[row][col] = true;
         boolean result = false;
