@@ -14,7 +14,6 @@ public class Codec {
         StringBuilder result = new StringBuilder();
         dfsPreOrder(root, result);
         result.setLength(result.length()-1);
-        // System.out.println(result);
         
         return result.toString();
     }
@@ -24,14 +23,11 @@ public class Codec {
         
         String[] nodes = data.split("_");
         
-        TreeNode result = dfsDeserialize(nodes);
-        
-        for(String n:nodes){
-            System.out.print(n+" ");
-        }
-        return result;
+        return dfsDeserialize(nodes);
     }
+
     int pos = 0;
+    
     private TreeNode dfsDeserialize(String[] nodes){
         if(pos >= nodes.length) return null;
         TreeNode node = new TreeNode();
