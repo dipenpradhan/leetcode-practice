@@ -64,10 +64,6 @@ class Solution {
             return false;
         }
         
-
-        // if(totalRows == 1 && totalCols == 1 && word.length() == 1 && word.charAt(start) == board[row][col]) return true;
-
-        
         visited[row][col] = true;
         boolean result = false;
         for(int[] dir: DIRECTIONS){
