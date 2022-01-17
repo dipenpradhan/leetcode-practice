@@ -51,6 +51,7 @@ class Solution {
     */
     
     StringBuilder result = new StringBuilder();
+    boolean answerFound = false;
     int start, dest;
     int countUp = 0;
     StringBuilder down = new StringBuilder();
@@ -72,6 +73,7 @@ class Solution {
     }
     
     private int dfs(TreeNode node, Character direction){
+        if(answerFound) return 0;
         int code = 0;
         
         if(node == null) return code;
@@ -101,7 +103,7 @@ class Solution {
             code = 2;
         }
         
-
+        answerFound = lca;
         return lca?-1:code;
     }
     
