@@ -8,13 +8,18 @@
  * }
  */
 public class Codec {
-
+    
+    private static final boolean DEBUG = false;
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
         StringBuilder result = new StringBuilder();
-        dfsPreOrder(root, result);
-        result.setLength(result.length()-1);
         
+        // dfsSerializePreOrder(root, result);
+        bfsSerializeLevelOrder(root, result);
+        
+        result.setLength(result.length()-1);
+        if(DEBUG)
+            System.out.println("Serialized string = "+result.toString());
         return result.toString();
     }
 
@@ -22,13 +27,88 @@ public class Codec {
     public TreeNode deserialize(String data) {
         
         String[] nodes = data.split("_");
+        if(DEBUG){
+            System.out.println("Deserialized nodes = ");
+            for(String s: nodes){
+                System.out.print(s+" ");
+            }
+        }
+            
         
-        return dfsDeserialize(nodes);
+        // return dfsDeserializePreOrder(nodes);
+         return bfsDeserializeLevelOrder(nodes);
     }
 
+    
+    
+    /************ BFS LEVEL ORDER ************/
+    
+    private TreeNode bfsDeserializeLevelOrder(String[] nodes){
+        
+        Queue<TreeNode> nodeQ = new LinkedList<TreeNode>();
+        
+        int pos = 0;
+        if(nodes == null || nodes.length == 0 || nodes[0].equals(".")){
+            return null;
+        }
+        
+        TreeNode root = new TreeNode(Integer.parseInt(nodes[pos]));
+        nodeQ.offer(root);
+        
+        while(!nodeQ.isEmpty()){
+            TreeNode currNode = nodeQ.poll();
+            pos++;
+            if(nodes[pos].equals(".")){
+                currNode.left = null;
+            }else{
+                currNode.left = new TreeNode(Integer.parseInt(nodes[pos]));
+                nodeQ.offer(currNode.left);
+            }
+            pos++;
+            if(nodes[pos].equals(".")){
+                currNode.right = null;
+            }else{
+                currNode.right = new TreeNode(Integer.parseInt(nodes[pos]));
+                nodeQ.offer(currNode.right);
+            }
+        }
+        
+        return root;
+    }
+    
+    
+    private void bfsSerializeLevelOrder(TreeNode node, StringBuilder result){
+        
+        Queue<TreeNode> nodeQ = new LinkedList<TreeNode>();
+        
+        nodeQ.offer(node);
+        
+        while(!nodeQ.isEmpty()){
+            
+            TreeNode polled = nodeQ.poll();
+            
+            if(polled == null){
+                result.append("._");
+                continue;
+            }else{
+                result.append(polled.val);
+                result.append("_");    
+            }
+            
+            nodeQ.offer(polled.left);
+            nodeQ.offer(polled.right);
+            
+        }
+        
+    }
+    
+    
+    
+    /************ DFS PREORDER ************/
+    
     int pos = 0;
     
-    private TreeNode dfsDeserialize(String[] nodes){
+    private TreeNode dfsDeserializePreOrder(String[] nodes){
         if(pos >= nodes.length) return null;
         TreeNode node = new TreeNode();
         if(nodes[pos].equals(".")){
@@ -36,15 +116,15 @@ public class Codec {
         }else{
             node.val = Integer.parseInt(nodes[pos]);
             pos++;
-            node.left = dfsDeserialize(nodes);
+            node.left = dfsDeserializePreOrder(nodes);
             pos++;
-            node.right = dfsDeserialize(nodes);
+            node.right = dfsDeserializePreOrder(nodes);
         }
         
         return node;
     }
     
-    private void dfsPreOrder(TreeNode node, StringBuilder result){
+    private void dfsSerializePreOrder(TreeNode node, StringBuilder result){
         
         if(node == null){
             result.append("._");
@@ -54,8 +134,8 @@ public class Codec {
         result.append(node.val);
         result.append("_");
         
-        dfsPreOrder(node.left, result);
-        dfsPreOrder(node.right, result);
+        dfsSerializePreOrder(node.left, result);
+        dfsSerializePreOrder(node.right, result);
         
     }
     
