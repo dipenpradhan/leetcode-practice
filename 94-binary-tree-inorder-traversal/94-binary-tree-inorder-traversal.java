@@ -28,7 +28,12 @@ class Solution {
         Iterative:
             visit(node)
                 nodeStack
+                add all left children to stack
                 while stack is not empty:
+                    pop
+                    if popped right is not null
+                        add all left children of popped right to stack
+                    add popped to result
                     
         
     */
