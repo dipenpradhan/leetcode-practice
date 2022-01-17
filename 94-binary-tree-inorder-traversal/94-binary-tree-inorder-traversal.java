@@ -54,17 +54,13 @@ class Solution {
     private void visitIterative(TreeNode node, List<Integer> result){
         
         Stack<TreeNode> nodeStack = new Stack<TreeNode>();
-        
         TreeNode currNode = node;
         
         addLeftToStack(node, nodeStack);
         
         while(!nodeStack.isEmpty()){
-            
-            TreeNode pop = nodeStack.pop();
-            
+            TreeNode pop = nodeStack.pop(); 
             addLeftToStack(pop.right, nodeStack);
-            
             result.add(pop.val);
         }
         
