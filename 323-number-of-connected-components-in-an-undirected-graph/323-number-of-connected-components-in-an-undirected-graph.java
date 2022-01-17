@@ -18,7 +18,6 @@ class Solution {
             }
             adjList.get(edge[1]).add(edge[0]);
         }
-        System.out.println("adjList = "+adjList );
 
         for(int i = 0; i < n; i++){
             if(!visited[i]){
