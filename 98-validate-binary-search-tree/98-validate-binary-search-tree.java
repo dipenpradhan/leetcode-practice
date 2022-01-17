@@ -20,7 +20,7 @@ class Solution {
         Validity of subtree in BST:
             - all nodes in left subtree are less than parent
             - all nodes in right subtree are greater than parent
-            
+        Use long datatype to protect against integer max and min value existing in tree    
         fn isValidRecurse(node, min, max):
             if node is less than min or greater than max:
                 FAIL
