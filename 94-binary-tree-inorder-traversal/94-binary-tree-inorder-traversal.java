@@ -35,7 +35,8 @@ class Solution {
                         add all left children of popped right to stack
                     add popped to result
                     
-        
+        Time: O(n) because every node is visited once in DFS inorder
+        Space: O(n) because every node is added to result
     */
     
     
