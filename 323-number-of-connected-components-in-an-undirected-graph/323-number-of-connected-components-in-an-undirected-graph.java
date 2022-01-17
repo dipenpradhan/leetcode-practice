@@ -1,9 +1,27 @@
 class Solution {
     
+    /*
+        count = 0
+        
+        fn countComp(n, edges):
+            create adjacency list based on edges
+            for all nodes 0 to n-1:
+                if node is not previously visited:
+                    dfs(node)
+                    count++
+        
+        fn dfs(node, visited, n, adjList):
+            if node is not previously visited:
+                if node is present in adjacency list:
+                    loop over all neighbors of node:
+                        dfs(neighbor, ....
+            
+    */
+    
+    
     private int count = 0;
     
     public int countComponents(int n, int[][] edges) {
-        // System.out.println("edges="+edges);
         boolean[] visited = new boolean[n];
         
         Map<Integer, List<Integer>> adjList = new HashMap<Integer, List<Integer>>();
