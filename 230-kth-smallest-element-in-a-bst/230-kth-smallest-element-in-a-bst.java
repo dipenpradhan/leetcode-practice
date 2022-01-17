@@ -16,7 +16,21 @@
 class Solution {
     
     /*
+        Perform in-order traversal using DFS approach
+        During traversal, visit:
+            1. left child
+            2. current node
+                increment count
+                if count reaches k return value of current node
+            3. right child
         
+        Can be done recursively by checking count:
+            after visiting left
+            but before visiting right
+            
+        Can be done iteratively by checking count:
+            after popping all left children from stack
+            but before adding left children of right node to stack
     */
     
     private int count = 0, result = 0;
