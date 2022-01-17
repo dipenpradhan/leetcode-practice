@@ -18,6 +18,19 @@ class Solution {
     /*
         INORDER TRAVERSAL
         LEFT -> PARENT -> RIGHT
+        
+        Recursive:
+            visit(node)
+                visit left
+                add node to result
+                visit right
+        
+        Iterative:
+            visit(node)
+                nodeStack
+                while stack is not empty:
+                    
+        
     */
     
     
@@ -27,19 +40,47 @@ class Solution {
         
         if(root == null) return result;
         
-        visit(root, result);
+        // visitRecursive(root, result); // RECURSIVE
+        visitIterative(root, result); // ITERATIVE
         
         return result;
     }
    
+    private void visitIterative(TreeNode node, List<Integer> result){
+        
+        Stack<TreeNode> nodeStack = new Stack<TreeNode>();
+        
+        TreeNode currNode = node;
+        
+        addLeftToStack(node, nodeStack);
+        
+        while(!nodeStack.isEmpty()){
+            
+            TreeNode pop = nodeStack.pop();
+            
+            if(pop.right != null) {
+                addLeftToStack(pop.right, nodeStack);
+            }
+            
+            result.add(pop.val);
+        }
+        
+    }
     
-    private void visit(TreeNode node, List<Integer> result){
+    private void addLeftToStack(TreeNode node, Stack<TreeNode> nodeStack){
+        TreeNode currNode = node;
+        while(currNode != null){
+            nodeStack.push(currNode);
+            currNode = currNode.left;
+        }
+    }
+    private void visitRecursive(TreeNode node, List<Integer> result){
         
         if(node == null) return;
         
-        visit(node.left, result);
+        visitRecursive(node.left, result);
         result.add(node.val);
-        visit(node.right, result);
+        visitRecursive(node.right, result);
         
     }
     
