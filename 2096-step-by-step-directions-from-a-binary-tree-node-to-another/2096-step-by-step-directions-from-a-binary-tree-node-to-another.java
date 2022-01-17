@@ -96,11 +96,8 @@ class Solution {
             code = FOUND_START;
         }
         
-        if(left == FOUND_DEST){
-            down.append('L');
-            code = FOUND_DEST;
-        }else if(right == FOUND_DEST){
-            down.append('R');
+        if(left == FOUND_DEST || right == FOUND_DEST){
+            down.append(left == FOUND_DEST ? 'L' : 'R');
             code = FOUND_DEST;
         }
  
