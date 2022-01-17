@@ -63,9 +63,7 @@ class Solution {
             
             TreeNode pop = nodeStack.pop();
             
-            if(pop.right != null) {
-                addLeftToStack(pop.right, nodeStack);
-            }
+            addLeftToStack(pop.right, nodeStack);
             
             result.add(pop.val);
         }
