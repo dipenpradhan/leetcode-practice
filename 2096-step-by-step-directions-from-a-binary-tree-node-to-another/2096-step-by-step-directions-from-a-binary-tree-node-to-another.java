@@ -24,7 +24,7 @@ class Solution {
         constants FOUND_NONE, FOUND_START, FOUND_DEST, FOUND_BOTH
         
         fn int dfs(node, start, dest, down):
-            code = FOUND_NODE
+            code = FOUND_NONE
             if node is null or ansFound:
                 exit FOUND_NONE
             
