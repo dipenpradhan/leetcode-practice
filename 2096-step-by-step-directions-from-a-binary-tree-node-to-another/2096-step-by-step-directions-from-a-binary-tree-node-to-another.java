@@ -50,18 +50,15 @@ class Solution {
                 exit 1
     */
     
-    StringBuilder result = new StringBuilder();
-    boolean answerFound = false;
-    int start, dest;
-    int countUp = 0;
-    StringBuilder down = new StringBuilder();
+    private StringBuilder result = new StringBuilder();
+    private boolean answerFound = false;
+    private int countUp = 0;
     
     public String getDirections(TreeNode root, int startValue, int destValue) {
         
-        this.start = startValue;
-        this.dest = destValue;
-        
-        dfs(root, null);
+       StringBuilder down = new StringBuilder();
+       
+        dfs(root, startValue, destValue, down);
       
         for(int i = 0; i < countUp; i++){
             result.append('U');
@@ -72,8 +69,9 @@ class Solution {
         return result.toString();
     }
     
-    private int dfs(TreeNode node, Character direction){
+    private int dfs(TreeNode node, int start, int dest, StringBuilder down){
         if(answerFound) return 0;
+        
         int code = 0;
         
         if(node == null) return code;
@@ -84,11 +82,11 @@ class Solution {
             code = 2;
         }
         
-        int left = dfs(node.left, 'L');
+        int left = dfs(node.left, start, dest, down);
         
-        int right = dfs(node.right, 'R');
+        int right = dfs(node.right, start, dest, down);
         
-        boolean lca = code + left + right == 3;
+        answerFound = code + left + right == 3;
         
         if(left == 1 || right == 1){
             countUp++;
@@ -103,8 +101,8 @@ class Solution {
             code = 2;
         }
         
-        answerFound = lca;
-        return lca?-1:code;
+        
+        return answerFound?-1:code;
     }
     
 }
