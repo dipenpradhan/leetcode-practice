@@ -15,17 +15,17 @@ class Solution {
         
         fn bool backtrack(row, col, start, visited
             
-            if row, col exceed bounds:
-                FAIL
-            
-            if row, col visited:
+            if start reaches end of word length:
+                SUCCESS
+                
+            if row, col exceed bounds OR are visited OR character at row, col is not equal to character at "start" in word:
                 FAIL
             
             mark row, col as visited
             
-            result = true
+            result = false
             loop over all 4 directions
-                result &= dfs(nextRow, nextCol, start+1,
+                result |= dfs(nextRow, nextCol, start+1,
             
             // backtrack step:
             mark row, col as not visited to enable recursion caller to explore the cell in another direction
