@@ -49,9 +49,7 @@ class Solution {
            ){
             return true;
         }
-        if(node.left == null && node.right == null){
-            return true;
-        }
+
         return false;
     }
 }
