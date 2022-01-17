@@ -17,42 +17,20 @@ class Solution {
     
     /*
         DFS
-        startFound
-        destFound
         
-        fn int dfs(node, start, dest, up, down, direction
+        result
+        answerFound
+        countUp
+        constants FOUND_START, FOUND_DEST, NONE
+        fn int dfs(node, start, dest, down):
             
-            if node null or (startFound and endFound):
-                exit 0
             
-            if node is start:
-                exit -1
-                
-            if node is dest:
-                exit 1
-                
-            left = dfs(left,...L
-            right = dfs(right,...R
-            
-            if left and right both are not 0:
-                exit 2
-            
-            if left or right is -1:
-                append U to up string
-                exit -1
-            
-            if left is 1:
-                append L to down string
-                exit 1
-            
-            if right is 1:
-                append R to down string
-                exit 1
     */
     
     private StringBuilder result = new StringBuilder();
     private boolean answerFound = false;
     private int countUp = 0;
+    private static final int FOUND_NONE = 0, FOUND_START = 1, FOUND_DEST = 2, FOUND_BOTH = 3;
     
     public String getDirections(TreeNode root, int startValue, int destValue) {
         
@@ -70,39 +48,38 @@ class Solution {
     }
     
     private int dfs(TreeNode node, int start, int dest, StringBuilder down){
-        if(answerFound) return 0;
         
-        int code = 0;
+        int code = FOUND_NONE;
         
-        if(node == null) return code;
+        if(answerFound || node == null) return code;
         
         if(node.val == start){
-            code = 1;
+            code = FOUND_START;
         }else if(node.val == dest){
-            code = 2;
+            code = FOUND_DEST;
         }
         
         int left = dfs(node.left, start, dest, down);
         
         int right = dfs(node.right, start, dest, down);
         
-        answerFound = code + left + right == 3;
+        answerFound = code + left + right == FOUND_BOTH;
         
-        if(left == 1 || right == 1){
+        if(left == FOUND_START || right == FOUND_START){
             countUp++;
-            code = 1;
+            code = FOUND_START;
         }
         
-        if(left == 2){
+        if(left == FOUND_DEST){
             down.append('L');
-            code = 2;
-        }else if(right == 2){
+            code = FOUND_DEST;
+        }else if(right == FOUND_DEST){
             down.append('R');
-            code = 2;
+            code = FOUND_DEST;
         }
         
         
-        return answerFound?-1:code;
+        return answerFound ? -1 : code;
     }
     
 }
