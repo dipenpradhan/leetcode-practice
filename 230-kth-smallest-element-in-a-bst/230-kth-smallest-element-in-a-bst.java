@@ -15,30 +15,66 @@
  */
 class Solution {
     
+    /*
+        
+    */
+    
     private int count = 0, result = 0;
     public int kthSmallest(TreeNode root, int k) {
         
-        dfs(root, k);
+        // inorderRecursive(root, k); // RECURSIVE in-order traversal - DFS
+        inorderIterative(root, k); // ITERATIVE in-order traversal - DFS
         
         return result;
         
     }
+        
+    private void inorderIterative(TreeNode node, int k){
+        
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        
+        addLeftToStack(node, stack);
+        
+        while(!stack.isEmpty()){
+            TreeNode pop = stack.pop();
+            
+            count++;
+            
+            if(count == k){
+                result = pop.val;
+                return;
+            }
+            addLeftToStack(pop.right, stack);
+            
+        }
+    }
     
-    private void dfs(TreeNode node, int k){
+    private void addLeftToStack(TreeNode node, Stack<TreeNode> stack){
+        TreeNode currNode = node;
+        
+        while(currNode!=null){
+            stack.add(currNode);
+            currNode = currNode.left;
+        }
+        
+    }
+    
+    private void inorderRecursive(TreeNode node, int k){
         
         if(node == null) {
             return;
         }
         
-    
+        inorderRecursive(node.left, k);
         
-        dfs(node.left, k);
         count++;
+        
         if(count == k){
             result = node.val;
             return;
         }
-        dfs(node.right, k);
+        
+        inorderRecursive(node.right, k);
         
 
     }
