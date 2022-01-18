@@ -1,17 +1,17 @@
 class Solution {
     
-    private static final int START = 1, END = 2;
+    private static final int START = 0, END = 1;
     
     public int[] searchRange(int[] nums, int target) {
         
         int[] result = new int[2];
         // find first location of target
-        result[0] = binarySearch(nums, target, START);
+        result[START] = binarySearch(nums, target, START);
         
         // if first location is not found, do not check last location
-        if(result[0] == -1) result[1] = -1;
+        if(result[START] == -1) result[END] = -1;
         // if first location is found, find last location of target
-        else result[1] = binarySearch(nums, target, END);
+        else result[END] = binarySearch(nums, target, END);
         
         return result;
     }
