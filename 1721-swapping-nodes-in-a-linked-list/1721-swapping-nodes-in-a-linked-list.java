@@ -104,7 +104,7 @@ class Solution {
     private void swapNodes(ListNode beforeFirst, ListNode beforeSecond){
         
         if(beforeFirst == null || beforeSecond == null) return;
-        System.out.println("beforeFirst="+beforeFirst.val+" beforeSecond="+beforeSecond.val);
+        // System.out.println("beforeFirst="+beforeFirst.val+" beforeSecond="+beforeSecond.val);
         ListNode bf = beforeFirst, f = beforeFirst.next, af = f.next;
         
         ListNode bs = beforeSecond, s = beforeSecond.next, as = s.next;
