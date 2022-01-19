@@ -11,7 +11,23 @@
 class Solution {
     
     /*
+        Add a dummy node before head
+        set dummy.next to head
         
+        curr = dummy
+        
+        loop until curr and curr.next are not null:
+
+            first   =  curr.next
+            second  =  first.next
+            third   =  second.next
+            
+            if second not null
+                curr.next = second
+                second.next = first
+                first.next = third
+            
+            curr = first
         
     
     */
