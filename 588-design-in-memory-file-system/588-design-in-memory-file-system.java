@@ -1,7 +1,7 @@
 class FileSystem {
 
     static final class TNode{
-        Map<String, TNode> links = new TreeMap<String, TNode>();
+        Map<String, TNode> links = new HashMap<String, TNode>(); // Use TreeMap for pre-sorting
         StringBuilder data;
         
         boolean isFile(){
@@ -36,6 +36,7 @@ class FileSystem {
         
         if(path.equals("/")) {
             res.addAll(root.links.keySet());
+            Collections.sort(res);
             return res;
         }
         
@@ -46,7 +47,7 @@ class FileSystem {
         }else if(tn.links.containsKey(last)){
             res.addAll(tn.links.get(last).links.keySet());
         }
-        
+        Collections.sort(res);
         return res;
     }
     
