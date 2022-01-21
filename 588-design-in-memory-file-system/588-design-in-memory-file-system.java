@@ -36,7 +36,7 @@ class FileSystem {
         
         if(path.equals("/")) {
             res.addAll(root.links.keySet());
-            Collections.sort(res);
+            Collections.sort(res); // Remove if using TreeMap
             return res;
         }
         
@@ -47,7 +47,7 @@ class FileSystem {
         }else if(tn.links.containsKey(last)){
             res.addAll(tn.links.get(last).links.keySet());
         }
-        Collections.sort(res);
+        Collections.sort(res); // remove if using TreeMap
         return res;
     }
     
