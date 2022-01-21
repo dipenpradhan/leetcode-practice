@@ -1,14 +1,15 @@
 class Solution {
-    private static final int BR = 0, RD = 1, SQ = 2;
     
-    public boolean isValid(String s) {
-        
-        int[] op = new int[3];
-        Map<Character, Character> map = new HashMap<Character, Character>();
+    Map<Character, Character> map;
+    
+    Solution(){
+        map = new HashMap<Character, Character>();
         map.put('}','{');
         map.put(']','[');
-        map.put(')','(');
-        
+        map.put(')','(');    
+    }
+    public boolean isValid(String s) {
+
         Stack<Character> stk = new Stack<Character>();
         
         for(char c : s.toCharArray()){
