@@ -52,7 +52,7 @@ class LRUCache {
         DLLNode n = map.get(key);
         remove(n);
         add(n);
-        debug();
+        // debug();
         return map.get(key).val;
     }
     
@@ -77,7 +77,7 @@ class LRUCache {
         }
         
         
-        debug();
+        // debug();
     }
     
     void debug(){
