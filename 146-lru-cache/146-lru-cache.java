@@ -42,10 +42,6 @@ class LRUCache {
     }
     
     public int get(int key) {
-                // System.out.println("");
-
-                // debug();
-
         // System.out.println("get("+key+")");
         if(!map.containsKey(key)) return -1;
         
@@ -81,13 +77,13 @@ class LRUCache {
     }
     
     void debug(){
-        // DLLNode n = h;
-        // while(n!=null){
-        //     System.out.print(n.val+" ");
-        //     n = n.nxt;
-        // }
-        // System.out.println(map);
-        // System.out.println("");
+        DLLNode n = h;
+        while(n!=null){
+            System.out.print(n.val+" ");
+            n = n.nxt;
+        }
+        System.out.println(map);
+        System.out.println("");
     }
 }
 
