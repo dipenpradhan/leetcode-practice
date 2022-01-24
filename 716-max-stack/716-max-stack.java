@@ -18,12 +18,6 @@ class MaxStack {
             n.pre.nxt = n.nxt;
             n.nxt.pre = n.pre;
         }
-        DLLNode popHead(){
-            DLLNode n = h.nxt;
-            h.nxt = h.nxt.nxt;
-            h.nxt.pre = h;
-            return n;
-        }
         DLLNode peekHead(){
             return h.nxt;
         }
