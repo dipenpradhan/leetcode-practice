@@ -17,7 +17,6 @@ class Solution {
                     sb.append(':');
                     sb.append(a[i]);
                     sb.append('|');
-
                 }
             }
             if(sb.length() > 0){
