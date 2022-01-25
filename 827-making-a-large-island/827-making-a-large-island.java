@@ -4,7 +4,6 @@ class Solution {
     int[][] DIRECTIONS = new int[][]{{0,1},{0,-1},{1,0},{-1,0}};
     
     public int largestIsland(int[][] grid) {
-        // System.out.println("");
         if(grid == null) return 0;
         rows = grid.length;
         if(rows == 0 ) return 0;
@@ -23,7 +22,6 @@ class Solution {
                 for(String b : border){
                     sizes.put(b, sizes.getOrDefault(b, 1) + res);    
                 }
-                // System.out.println("r="+r+"c="+c+" "+sizes);
             }
         }
         
@@ -56,7 +54,6 @@ class Solution {
             for(int[] d : DIRECTIONS){
                 res += dfs(grid, r+d[0], c+d[1], border);
             }
-            // grid[r][c] = 2;
             return res;
         }
         return 0;
