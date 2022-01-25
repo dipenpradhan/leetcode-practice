@@ -49,12 +49,12 @@ class Solution {
         
         if(g == 1){
             grid[r][c] = 2;
-            int res = 1;
+            int size = 1;
             
             for(int[] d : DIRECTIONS){
-                res += dfs(grid, r+d[0], c+d[1], border);
+                size += dfs(grid, r+d[0], c+d[1], border);
             }
-            return res;
+            return size;
         }
         return 0;
     }
