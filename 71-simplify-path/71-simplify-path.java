@@ -1,6 +1,6 @@
 class Solution {
     public String simplifyPath(String path) {
-        ArrayDeque<String> q = new ArrayDeque<String>();
+        Deque<String> q = new ArrayDeque<String>();
         
         StringBuilder p = new StringBuilder();
             
