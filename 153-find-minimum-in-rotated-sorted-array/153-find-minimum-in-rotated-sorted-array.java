@@ -9,12 +9,10 @@ class Solution {
             // pivot on right
             if(nums[m] > nums[r]){
                 l = m+1;
-            }else // mid is pivot
-            if(m == l || nums[m] < nums[m-1]){
+            }else if(m == l || nums[m] < nums[m-1]){
+                // mid is pivot
                 return nums[m];
-            }
-            
-            else{
+            }else{ // either pivot is on left or there is no pivot
                 r = m-1;
             }
         }
