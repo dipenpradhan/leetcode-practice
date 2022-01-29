@@ -44,26 +44,21 @@ class Solution {
         
         while(s <= e){
             int m = s + (e-s)/2;
+            int c = less < 0 ? 0 : COLS - 1;
             
-            if(less < 0){
-                if(mat[m][0] <= t && (m==e || mat[m+1][0] > t)){
+            if(mat[m][c] <= t && (m==e || mat[m+1][c] > t)){
+                if(less < 0){
                     less = m;
                     e = m;
-                }else if(mat[m][0] > t){
-                    e = m-1;
                 }else{
-                    s = m+1;
-                }    
-            }else{
-                if(mat[m][COLS-1] <= t && (m==e || mat[m+1][COLS-1]>t)){
                     great = m;
                     return new int[]{less, great};
-                }else if(mat[m][COLS-1] > t){
-                    e = m-1;
-                }else{
-                    s = m+1;
                 }
-            }
+            }else if(mat[m][c] > t){
+                e = m-1;
+            }else{
+                s = m+1;
+            }    
             
         }
         return new int[]{less, great};
