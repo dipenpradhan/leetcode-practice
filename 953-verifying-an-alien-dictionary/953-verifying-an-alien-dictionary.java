@@ -21,10 +21,8 @@ class Solution {
             }
             
             if(w1.length() > w2.length() && j >= w2.length()){
-                System.out.println("Fst"+j);
                 return false;
             }else if(j < w1.length() && j < w2.length() && alpha[w1.charAt(j)-'a'] > alpha[w2.charAt(j)-'a']){
-                System.out.println("Sec");
                 return false;
             }
         }
