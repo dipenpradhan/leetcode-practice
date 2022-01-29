@@ -1,6 +1,29 @@
 class Solution {
     public boolean searchMatrix(int[][] matrix, int target) {
         
+        int ROWS = matrix.length, COLS = matrix[0].length;
+        int r = ROWS-1, c = 0;
+        
+        while(r >= 0 && c < COLS){
+            if(target == matrix[r][c]){
+                return true;
+            }else if(target > matrix[r][c]){
+                c++;
+            }else{
+                r--;
+            }
+        }
+        return false;
+    }
+}
+
+
+/*
+// BINARY SEARCH
+
+class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        
         if(matrix == null) return false;
         
         int row = findRow(matrix, target);
@@ -51,3 +74,4 @@ class Solution {
         return -1;
     }
 }
+*/
