@@ -6,9 +6,9 @@ class Solution {
         
         int[] row = findRow(matrix, target);
         if(row[0]<0 && row[1]<0)return false;
-        row[0] = Math.max(matrix.length-1,row[0]);
-        row[1] = Math.max(0,row[1]);
-                System.out.println(Arrays.toString(row));
+        row[0] = row[0]<0?matrix.length-1:row[0];
+        row[1] = row[1]<0?0:row[1];
+        // System.out.println(Arrays.toString(row));
 
         for(int r = row[1]; r <= row[0]; r++){
             if(findCol(matrix, r, target)>=0){
