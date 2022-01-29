@@ -11,18 +11,18 @@ class Solution {
         
         
         for(int i = 0; i < words.length - 1; i++){
-            String w1 = words[i];
-            String w2 = words[i+1];
+            String first = words[i];
+            String second = words[i+1];
             
             int j = 0;
-            while(j < w1.length() && j < w2.length() && w1.charAt(j) == w2.charAt(j) ){
+            while(j < first.length() && j < second.length() && first.charAt(j) == second.charAt(j) ){
                 
                 j++;
             }
             
-            if(w1.length() > w2.length() && j >= w2.length()){
+            if(first.length() > second.length() && j >= second.length()){
                 return false;
-            }else if(j < w1.length() && j < w2.length() && alpha[w1.charAt(j)-'a'] > alpha[w2.charAt(j)-'a']){
+            }else if(j < first.length() && j < second.length() && alpha[first.charAt(j)-'a'] > alpha[second.charAt(j)-'a']){
                 return false;
             }
         }
