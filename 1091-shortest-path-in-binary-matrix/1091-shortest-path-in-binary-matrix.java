@@ -8,15 +8,15 @@ class Solution {
     
     public int shortestPathBinaryMatrix(int[][] grid) {
         int N = grid.length;
-        Set<String> visited = new HashSet<>();
+        boolean[][] visited = new boolean[N][N];
         Queue<int[]> q = new LinkedList<int[]>();
         q.offer(new int[]{0,0,1});
         while(!q.isEmpty()){
             
             int[] p = q.poll();
             int r = p[0], c = p[1], d = p[2];
-            if(!visited.contains(r+"|"+c)){
-                visited.add(r+"|"+c);
+            if(!visited[r][c]){
+                visited[r][c] = true;
             }else{
                 continue;
             }
