@@ -12,18 +12,16 @@ class Solution {
         while(f>=0 || s>=0){
             int fn = f>=0?Character.getNumericValue(fst.charAt(f)):-1;
             int sn = s>=0?Character.getNumericValue(sec.charAt(s)):-1;
-            
+            int r = 0;
             if(f>=0 && s>=0){
-                int r = (fn+sn+c)%10;
-                numStr.append(r);
-                c = (fn+sn+c)/10;
+                r = fn+sn+c;
             }else if (f>=0){
-                numStr.append((fn+c)%10);
-                c = (fn+c)/10;
+                r = fn + c;
             }else{
-                numStr.append((sn+c)%10);
-                c = (sn+c)/10;
+                r = sn + c;
             }
+            numStr.append(r%10);
+            c = r/10;
             f--;
             s--;
 
@@ -34,3 +32,6 @@ class Solution {
     }
   
 }
+
+//"3876620623801494171"
+//"6529364523802684779"
