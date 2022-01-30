@@ -21,28 +21,17 @@ class Solution {
         */
         
         // protect against bad input
-        if(nums == null || nums.length == 0) return -1;
         
-        Map<Integer, Integer> prefixSumCounts = new HashMap<Integer, Integer>();
-        prefixSumCounts.put(0,1);
+        int s = 0, c = 0;
+        Map<Integer, Integer> pfx = new HashMap<Integer, Integer>();
+        pfx.put(s,1);
         
-        int currSum = 0, count = 0;
-        
-        for(int i = 0; i < nums.length; i++){
-            
-            int num = nums[i];
-            currSum += num;
-            
-            if(prefixSumCounts.containsKey(currSum - k)){
-                count += prefixSumCounts.get(currSum - k);
-            }
-            
-            if(prefixSumCounts.containsKey(currSum)){
-                prefixSumCounts.put(currSum, prefixSumCounts.get(currSum) + 1);
-            }else{
-                prefixSumCounts.put(currSum, 1);
-            }
+        for(int n : nums){
+            s += n;
+            c += pfx.getOrDefault(s-k, 0);
+            pfx.put(s, pfx.getOrDefault(s, 0)+1);
         }
-     return count;   
+        
+        return c;
     }
 }
