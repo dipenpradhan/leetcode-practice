@@ -19,9 +19,7 @@ class Solution {
             }else{
                 return false;
             }
-            
         }
-        return !(buf.length()>0 || a != abbr.length() || w != word.length());
-        
+        return buf.length()==0 && a == abbr.length() && w == word.length();
     }
 }
