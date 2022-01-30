@@ -11,7 +11,6 @@ class Solution {
         Set<String> visited = new HashSet<>();
         Queue<int[]> q = new LinkedList<int[]>();
         q.offer(new int[]{0,0,1});
-        int min = Integer.MAX_VALUE;
         while(!q.isEmpty()){
             
             int[] p = q.poll();
@@ -29,14 +28,12 @@ class Solution {
                         q.offer(new int[]{rn, cn, d+1});
                 }
                 if(r==N-1 && c==N-1) {
-                    min = Math.min(min, d);
                     return d;
-                    
                 }
 
             }
         }
-        return min==Integer.MAX_VALUE?-1:min;
+        return -1;
     }
     
     
