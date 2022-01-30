@@ -18,6 +18,7 @@ class Solution {
             n.next = p;
             p = n;
             n = tmp;
+            
         }
         return p;
     }
