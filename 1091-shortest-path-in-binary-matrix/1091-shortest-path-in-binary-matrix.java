@@ -30,6 +30,8 @@ class Solution {
                 }
                 if(r==N-1 && c==N-1) {
                     min = Math.min(min, d);
+                    return d;
+                    
                 }
 
             }
