@@ -14,8 +14,9 @@ class Solution {
     
     private void appendBuf(StringBuilder res, StringBuilder buf){
         int i = buf.length()-1;
-        if(i>=0 && res.length()>0) res.append(' ');
+        
         while(i>=0){
+            if(i==buf.length()-1 && res.length()>0) res.append(' ');
             res.append(buf.charAt(i));
             i--;
         }
