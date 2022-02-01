@@ -6,8 +6,11 @@ class SparseVector {
     // Return the dotProduct of two sparse vectors
     public int dotProduct(SparseVector vec) {
         int res = 0;
-        for(Map.Entry<Integer, Integer> en: vec.map.entrySet()){
-            res += en.getValue() * map.getOrDefault(en.getKey(), 0);
+        Map<Integer, Integer> sm = map.size()>vec.map.size()?vec.map:map;
+        Map<Integer, Integer> lg = map.size()>vec.map.size()?map:vec.map;
+        
+        for(Map.Entry<Integer, Integer> en: sm.entrySet()){
+            res += en.getValue() * lg.getOrDefault(en.getKey(), 0);
         }
         return res;
     }
