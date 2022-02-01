@@ -1,6 +1,5 @@
 class Solution {
     public List<String> summaryRanges(int[] nums) {
-        StringBuilder buf = new StringBuilder();
         List<String> res = new ArrayList<String>();
         int l = 0, r = 0;
         
