@@ -15,9 +15,7 @@ class Solution {
           int mDays = checkDays(wts, m);
           // System.out.println(l+" "+m+" "+r+" =>"+mDays);
 
-          if(mDays == d && (l==m || checkDays(wts, m-1)>d)){
-            return m;
-          }else if(mDays > d){
+          if(mDays > d){
               l = m+1;
           }else{
               r = m-1;     
