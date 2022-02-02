@@ -29,7 +29,7 @@ class Solution {
             t+=(p%max)>0?1:0;
         }
         
-        System.out.println("t="+t);
+        // System.out.println("t="+t);
         return t <= hrs;
     }
     private int[] minMaxTot(int[] p){
