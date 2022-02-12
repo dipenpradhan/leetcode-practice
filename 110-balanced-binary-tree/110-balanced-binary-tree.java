@@ -15,7 +15,7 @@
  */
 class Solution {
 
-    boolean res = true;
+    private boolean res = true;
     public boolean isBalanced(TreeNode root) {
         dfs(root, 1);
         return res;
@@ -26,7 +26,7 @@ class Solution {
         if(!res) return -1;
         int l = dfs(n.left, c+1);
         int r = dfs(n.right, c+1);
-        if(Math.abs(l-r)>1) res = false;
+        if(Math.abs(l-r) > 1) res = false;
         
         return Math.max(l, r); 
     }
