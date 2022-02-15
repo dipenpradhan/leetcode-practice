@@ -7,10 +7,11 @@ class Solution {
             String[] cp = cpdomains[i].split(" ");
             int c = Integer.parseInt(cp[0]);
             String[] dom = cp[1].split("\\.");
-            
-            for(int j = 0; j < dom.length; j++){
-                String subd = findSubdomain(dom, j);
-                map.put(subd, map.getOrDefault(subd,0)+c);
+            StringBuilder subd = new StringBuilder();
+            for(int j = dom.length-1; j >= 0; j--){
+                if(j!=dom.length-1)subd.insert(0,'.');
+                subd.insert(0, dom[j]);
+                map.put(subd.toString(), map.getOrDefault(subd.toString(),0)+c);
             }
         }
         
