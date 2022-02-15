@@ -24,14 +24,5 @@ class Solution {
         }
         return res;
     }
-    private String findSubdomain(String[] dom, int start){
-        StringBuilder subd = new StringBuilder();
-        for(int i = start; i < dom.length; i++){
-            if(i!=start){
-                subd.append('.');
-            }
-            subd.append(dom[i]);
-        }
-        return subd.toString();
-    }
+    
 }
