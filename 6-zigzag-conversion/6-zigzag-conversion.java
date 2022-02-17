@@ -1,4 +1,16 @@
 class Solution {
+    // Directions for zig zag string
+    // Example:
+    // "PAYPALISHIRING", rows = 3
+    // P   A   H   N    row 0
+    // A P L S I I G    row 1
+    // Y   I   R        row 2
+    //
+    // In this example,
+    // we iterate through (P-A-Y)PALISHIRING downwards,
+    // then we flip direction and iterate through PAY(P-A)LIS... upwards
+    // and again flip down to iterate through PAYP(A-L-I)S.. and so on
+    // in a zig-zag way
     private static final int DIR_DOWN = 1, DIR_UP = -1, DIR_NONE = 0;
     
     public String convert(String s, int numRows) {
