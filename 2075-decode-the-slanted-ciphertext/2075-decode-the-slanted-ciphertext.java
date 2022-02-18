@@ -2,7 +2,7 @@ class Solution {
     private static int ROWS, COLS;
     public String decodeCiphertext(String encodedText, int rows) {
         ROWS = rows;
-        COLS = (encodedText.length()/rows) + (encodedText.length()%rows>0?1:0);
+        COLS = (encodedText.length()/rows);
         
         StringBuilder res = new StringBuilder();
         
