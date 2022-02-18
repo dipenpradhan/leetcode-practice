@@ -19,13 +19,10 @@ class Solution {
                 }else if(sign<0 && res < Integer.MIN_VALUE/10 || (res == Integer.MIN_VALUE/10 && Character.getNumericValue(c)>8)){
                     return Integer.MIN_VALUE;
                 }
-                                                System.out.println("seen and res= "+res+" c="+Character.getNumericValue(c));
-
                 res*=10;
                 res += sign*Character.getNumericValue(c);
 
             }else if(sign==0 && (c == '+' || c == '-')){
-                System.out.println("sign==0 and sign found "+c);
                 sign = c == '+'? 1 : -1;
             }else if(sign!=0 || seen || c != ' '){
                 break;
