@@ -51,7 +51,6 @@ class Solution {
     }
     
     private void ins(Node n, int ins){
-        if(n==null) n = new Node(ins);
-        else n.next = new Node(ins, n.next);
+        n.next = new Node(ins, n.next);
     }
 }
