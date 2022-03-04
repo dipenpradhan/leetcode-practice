@@ -4,9 +4,9 @@ class Solution {
         
         for(int i = 0; i < prices.length-1; i++){
             int p = prices[i];
-            int p2 = i+1<prices.length?prices[i+1]:0;
+            int p2 = prices[i+1];
             
-            if(i!=prices.length-1 && p2 - p > 0){
+            if(p2 - p > 0){
                 maxP += p2-p;   
             }
         }
