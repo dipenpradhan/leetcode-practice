@@ -15,9 +15,7 @@ class Solution {
         int[] res = new int[arr.length];
         
         for(int i = 0; i < arr.length; i++){
-            // if(stk.isEmpty() || arr[stk.peek()] > arr[i]){
-            //     stk.push(i);
-            // }
+
             while(!stk.isEmpty() && arr[stk.peek()] < arr[i]){
                 map.put(arr[stk.pop()], arr[i]);
             }
