@@ -3,13 +3,12 @@ import java.util.*;
     
 class Solution {
     private int sum = 0;
-    private int[] prob,wts;
+    private int[] prob, wts;
+    
     public Solution(int[] wts) {
         this.wts = wts;
         prob = prob(wts);
     }
-    
-    int count = 0, curr = 0;
     
     public int pickIndex() {
         double val = sum * Math.random();
@@ -40,14 +39,6 @@ class Solution {
         }
         sum = c;
         return p;
-    }
-    
-    private int sum(int[] wts){
-        int sum = 0;
-        for(int w: wts){
-            sum += w;
-        }
-        return sum;
     }
     
 }
