@@ -3,12 +3,7 @@ class Solution {
         
         List<int[]> result = new ArrayList<int[]>();
         int s = -1, e = -1;
-        Arrays.sort(intervals,(a,b)->{
-            int diff = a[0]-b[0];
-            if(diff == 0) return a[1]-b[1];
-            return diff;
-            }
-                );
+        Arrays.sort(intervals,(a,b)->a[0]-b[0]);
         for(int[] ivl: intervals){
             int st = ivl[0], en = ivl[1];
             if(s==-1 || e == -1){
