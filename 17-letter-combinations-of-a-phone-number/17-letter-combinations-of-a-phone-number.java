@@ -40,48 +40,33 @@ class Solution {
   String[] numpad = new String[]{"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
   
   public List<String> letterCombinations(String digits) {
-        List<String> result = new ArrayList<String>();
-
-       if (digits == null || digits.length() == 0)
-         return result;
-       
-      for(char c: digits.toCharArray()){
-        if(c < '2' || c > '9'){
-          return result;
-        }  
-      }
     
-      backtrack(result, new StringBuilder(), numpad, digits, 0);
-        
-      return result;
+      List<String> res = new ArrayList<String>();
+      StringBuilder curr = new StringBuilder();
+      
+      for(int i = 0; i < digits.length(); i++){
+          backtrack(digits, i, curr, res);
+      }
+      return res;
     
   }
   
   
-  private void backtrack(
-    List<String> result, StringBuilder currStr,
-    String[] numpad, String digits, int start){
-    
-    if(currStr.length() >= digits.length()){
-      
-      result.add(currStr.toString());
-      return;
-    }else if (start >= digits.length()){
-      return;
-    } 
-    
-    for(int i = start; i < digits.length(); i++){
-      
-      int digit = Character.getNumericValue(digits.charAt(i));
-      for(char c : numpad[digit].toCharArray()){
+  private void backtrack(String digits, int pos, StringBuilder curr, List<String> res){
         
-        currStr.append(c);
-        backtrack(result, currStr, numpad, digits, i+1);
-        currStr.setLength(currStr.length()-1);
-          
-      }
-    }
-    
+        if(pos == digits.length()){
+            if(curr.length() == digits.length()) res.add(curr.toString());
+            return;
+        }
+      
+        int d = Character.getNumericValue(digits.charAt(pos));
+        
+        for(char c: numpad[d].toCharArray()){
+            curr.append(c);
+            backtrack(digits, pos+1, curr, res);
+            curr.setLength(curr.length()-1);
+        }
+      
   }
     
   
