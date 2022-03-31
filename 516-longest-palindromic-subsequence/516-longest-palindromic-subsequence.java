@@ -2,11 +2,11 @@ class Solution {
     public int longestPalindromeSubseq(String s) {
         int[][] memo = new int[s.length()+1][s.length()+1];
         //    _  b  b  a  b
-        // _  0  0. 1. 1. 1 
-        // b  1  1. 2  2. 2
-        // a  1  1  2
-        // b  1
-        // b  1
+        // _  0  0. 0. 0. 0 
+        // b  0  1. 2  2. 2
+        // a  0  1  2
+        // b  0
+        // b  0
         
         
         // set up base case
